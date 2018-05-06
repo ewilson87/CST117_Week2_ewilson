@@ -1,0 +1,12 @@
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\bin\Debug\Week2_Exercise4.exe.config
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\bin\Debug\Week2_Exercise4.exe
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\bin\Debug\Week2_Exercise4.pdb
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.csprojResolveAssemblyReference.cache
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.Properties.Resources.resources
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.csproj.GenerateResource.cache
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.csproj.CoreCompileInputs.cache
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.exe
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.pdb
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.TimeLapsedConverter.resources
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\evanw\source\repos\Week2_Exercise4\Week2_Exercise4\obj\Debug\Week2_Exercise4.csproj.CopyComplete
