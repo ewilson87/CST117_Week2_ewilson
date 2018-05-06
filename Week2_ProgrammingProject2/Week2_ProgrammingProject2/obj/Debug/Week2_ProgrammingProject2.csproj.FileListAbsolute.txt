@@ -8,3 +8,5 @@ C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\
 C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\obj\Debug\Week2_ProgrammingProject2.exe
 C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\obj\Debug\Week2_ProgrammingProject2.pdb
 C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\obj\Debug\Week2_ProgrammingProject2.Text_Formatter.resources
+C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\evanw\source\repos\Week2_ProgrammingProject2\Week2_ProgrammingProject2\obj\Debug\Week2_ProgrammingProject2.csproj.CopyComplete
