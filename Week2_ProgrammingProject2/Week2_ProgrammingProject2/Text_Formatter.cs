@@ -26,49 +26,7 @@ namespace Week2_ProgrammingProject2
         private void fontListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //sets font
-            if (fontListBox.SelectedItem.ToString().Equals("Microsoft Sans Serif"))
-            {
-                formattedRichTextBox.Font = new Font("Microsoft Sans Serif", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Comic Sans MS"))
-            {
-                formattedRichTextBox.Font = new Font("Comic Sans MS", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Times New Roman"))
-            {
-                formattedRichTextBox.Font = new Font("Times New Roman", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Jokerman"))
-            {
-                formattedRichTextBox.Font = new Font("Jokerman", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Lucida Handwriting"))
-            {
-                formattedRichTextBox.Font = new Font("Lucida Handwriting", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Magneto"))
-            {
-                formattedRichTextBox.Font = new Font("Magneto", sizeSlider.Value + 1);
-                changeFontDetails();
-                changeColor();
-                changeSize();
-            }
-            else if (fontListBox.SelectedItem.ToString().Equals("Other"))
+            if (fontListBox.SelectedItem.ToString().Equals("Other"))
             {
                 FontDialog fontDialog = new FontDialog();
                 if (fontDialog.ShowDialog() == DialogResult.OK && !String.IsNullOrWhiteSpace(textBox.Text))
@@ -79,6 +37,14 @@ namespace Week2_ProgrammingProject2
                     changeSize();
                     formattedRichTextBox.Text = textBox.Text;
                 }
+            }
+            else
+            {
+                String font = fontListBox.SelectedItem.ToString();
+                formattedRichTextBox.Font = new Font(font, sizeSlider.Value + 1);
+                changeFontDetails();
+                changeColor();
+                changeSize();
             }
         }
 
@@ -95,88 +61,107 @@ namespace Week2_ProgrammingProject2
         private void changeFontDetails()
         {
             //sets details
-            if (boldCheckBox.Checked && italicCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout | FontStyle.Underline);
 
-            }
-            else if (boldCheckBox.Checked && italicCheckBox.Checked && strikeThroughCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout);
-            }
-            else if (boldCheckBox.Checked && italicCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
-            }
-            else if (boldCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Strikeout | FontStyle.Underline);
-            }
-            else if (italicCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Italic | FontStyle.Strikeout | FontStyle.Underline);
-            }
-            else if (boldCheckBox.Checked && italicCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Italic);
+            FontStyle boldFontStyle = new FontStyle();
+            if (boldCheckBox.Checked) boldFontStyle = FontStyle.Bold;
 
-            }
-            else if (boldCheckBox.Checked && strikeThroughCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Strikeout);
+            FontStyle italicFontStyle = new FontStyle();
+            if (italicCheckBox.Checked) italicFontStyle = FontStyle.Italic;
 
-            }
-            else if (boldCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold | FontStyle.Underline);
+            FontStyle strikeThroughFontStyle = new FontStyle();
+            if (strikeThroughCheckBox.Checked) strikeThroughFontStyle = FontStyle.Strikeout;
 
-            }
-            else if (italicCheckBox.Checked && strikeThroughCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Italic | FontStyle.Strikeout);
+            FontStyle underlineFontStyle = new FontStyle();
+            if (underlineCheckBox.Checked) underlineFontStyle = FontStyle.Underline;
 
-            }
-            else if (italicCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Italic | FontStyle.Underline);
+            formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                   boldFontStyle | italicFontStyle | strikeThroughFontStyle | underlineFontStyle);
 
-            }
-            else if (strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Strikeout | FontStyle.Underline);
 
-            }
-            else if (boldCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Bold);
-            }
-            else if (italicCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Italic);
-            }
-            else if (strikeThroughCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Strikeout);
-            }
-            else if (underlineCheckBox.Checked)
-            {
-                formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
-                    FontStyle.Underline);
-            }
+            /** if (boldCheckBox.Checked && italicCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout | FontStyle.Underline);
+
+             }
+             else if (boldCheckBox.Checked && italicCheckBox.Checked && strikeThroughCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Italic | FontStyle.Strikeout);
+             }
+             else if (boldCheckBox.Checked && italicCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+             }
+             else if (boldCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Strikeout | FontStyle.Underline);
+             }
+             else if (italicCheckBox.Checked && strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Italic | FontStyle.Strikeout | FontStyle.Underline);
+             }
+             else if (boldCheckBox.Checked && italicCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Italic);
+
+             }
+             else if (boldCheckBox.Checked && strikeThroughCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Strikeout);
+
+             }
+             else if (boldCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold | FontStyle.Underline);
+
+             }
+             else if (italicCheckBox.Checked && strikeThroughCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Italic | FontStyle.Strikeout);
+
+             }
+             else if (italicCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Italic | FontStyle.Underline);
+
+             }
+             else if (strikeThroughCheckBox.Checked && underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Strikeout | FontStyle.Underline);
+
+             }
+             else if (boldCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Bold);
+             }
+             else if (italicCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Italic);
+             }
+             else if (strikeThroughCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Strikeout);
+             }
+             else if (underlineCheckBox.Checked)
+             {
+                 formattedRichTextBox.Font = new Font(formattedRichTextBox.Font.FontFamily, sizeSlider.Value + 1,
+                     FontStyle.Underline);
+             }
+
+     **/
         }
 
         private void changeColor()
@@ -197,7 +182,7 @@ namespace Week2_ProgrammingProject2
             else if (greenColorRB.Checked)
             {
                 formattedRichTextBox.ForeColor = Color.Green;
-            }           
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -229,7 +214,6 @@ namespace Week2_ProgrammingProject2
         private void blackColorRB_CheckedChanged(object sender, EventArgs e)
         {
             changeColor();
-            blackColorRB.Checked = !blackColorRB.Checked;
         }
 
         private void redColorRB_CheckedChanged(object sender, EventArgs e)
